@@ -21,6 +21,12 @@ babel = Babel(app)
 
 pymysql.install_as_MySQLdb()
 
+DB_HOST = os.getenv('AWS_RDS_HOST')
+DB_PORT = os.getenv('AWS_RDS_PORT', '3306')  # Default to 5432 for PostgreSQL
+DB_USER = os.getenv('AWS_RDS_USER')
+DB_PASSWORD = os.getenv('AWS_RDS_PASSWORD')
+DB_NAME = os.getenv('AWS_RDS_DB_NAME')
+
 # Database URI for AWS RDS MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://admin:Imagescribe11!@imagescribe.cx6aooymq47o.ap-southeast-2.rds.amazonaws.com/imagescribe'
 
